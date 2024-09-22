@@ -89,6 +89,31 @@
     max-width: 75%;
 }
 
+/* blacked out choices */
+.choice-label.blacked-out {
+    background-color: black;
+    color: black;
+    text-decoration: line-through;
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.choice-label.blacked-out:hover {
+    background-color: #555; /* Dark gray for hover */
+}
+
+.choice-container.selected .choice-label {
+    background-color: white;
+    color: #2EA3CF; /* Blue color for selected text */
+    text-decoration: none; /* Remove the strike-through effect */
+    cursor: default;
+}
+
+
+
+
 /*
     ------------------------
     Appearance-specific styles

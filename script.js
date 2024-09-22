@@ -14,6 +14,33 @@ function isRTL (s) {
   return rtlDirCheck.test(s)
 }
 
+// Addition for blacked out scratch cards
+function change () {
+  setAnswer(this.value);
+  // Remove blackout for the selected choice
+  var selectedLabel = document.querySelector('.choice-container.selected .choice-label');
+  if (selectedLabel) {
+    selectedLabel.classList.remove('blacked-out');
+  }
+  
+  // Add the selected class to the current choice
+  var selectedOption = document.querySelector('input[name="opt"]:checked');
+  if (selectedOption) {
+    selectedOption.parentElement.classList.add('selected');
+  }
+
+  // Automatically go to the next field if the appearance is 'quick'
+  if (fieldProperties.APPEARANCE.includes('quick') === true) {
+    goToNextField();
+  }
+}
+
+// Attach the change event to each choice
+var choices = document.querySelectorAll('input[name="opt"]');
+choices.forEach(function(choice) {
+  choice.addEventListener('change', change);
+});
+
 // Prepare the current webview, making adjustments for any appearance options
 
 // minimal appearance
